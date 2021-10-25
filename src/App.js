@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import ListVoters from "./Pages/ListVoters";
+import ListCandidats from "./Pages/ListCandidats";
+import Law from "./Pages/Law";
+import SignInForm from "./Pages/SignInStudent";
+import SignInAdmin from "./Pages/SignInAdmin";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+import "./App.css";
+import Home from "./Pages/Home";
+
+
+  function App() {
+    return (
+
+       
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route path='/' exact component={Home} />
+            <Route path='/list-of-voters' component={ListVoters} />
+            <Route path='/list-of-candidats' component={ListCandidats} />
+            <Route path='/election-law' component={Law} />
+
+          </Switch>
+        </Router>
+
+       
+
+    );
+
 }
 
 export default App;
