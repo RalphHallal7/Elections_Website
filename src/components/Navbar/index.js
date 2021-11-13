@@ -8,6 +8,14 @@ import {
   NavBtnLink
 } from './NavbarElements';
 
+
+class DownloadLink extends React.Component {
+  render() {
+      return (
+          <a href={this.props.src} download>{this.props.children}</a>
+      )
+  }
+}
 const Navbar = () => {
   return (
     <>
@@ -24,9 +32,9 @@ const Navbar = () => {
             List Of Candidats 
           </NavLink>
 
-          <NavLink to='/election-law' activeStyle>
-            Election Law
-          </NavLink>
+          <DownloadLink src="https://drive.google.com/file/d/1JPV4pNk2WPgcE026NjzvjgX4LFJTX3j1/view?usp=sharing">
+            Election Law</DownloadLink>
+
         </NavMenu>
 
         <NavBtn>
