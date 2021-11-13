@@ -27,12 +27,12 @@ const Navbar = () => {
           <NavLink to='/election-law' activeStyle>
             Election Law
           </NavLink>
-          {/* Second Nav */}
-          {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
         </NavMenu>
+
         <NavBtn>
-          <NavBtnLink to='/'>Sign In</NavBtnLink>
+          <NavBtnLink to='/'>Sign In/Out</NavBtnLink>
         </NavBtn>
+        
       </Nav>
     </>
   );

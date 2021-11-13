@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-
 class SignInForm extends Component {
   constructor() {
     super();
@@ -12,7 +11,15 @@ class SignInForm extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
+    this.routeChange = this.routeChange.bind(this);
   }
+
+  routeChange() {
+    let path = '/Voting';
+    this.props.history.push(path);
+  }
+
 
   handleChange(event) {
     let target = event.target;
@@ -66,7 +73,7 @@ class SignInForm extends Component {
           </div>
 
           <div className="formField">
-            <button className="formFieldButton">Sign In</button>{" "}
+            <button className="formFieldButton" onClick={this.routeChange}>Sign In</button>
           </div>
 
         </form>

@@ -12,6 +12,13 @@ class SignInAdmin extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
+    this.routeChange = this.routeChange.bind(this);
+  }
+
+  routeChange() {
+    let path = '/Admin';
+    this.props.history.push(path);
   }
 
   handleChange(event) {
@@ -66,7 +73,7 @@ class SignInAdmin extends Component {
           </div>
 
           <div className="formField">
-            <button className="formFieldButton">Sign In As Admin</button>{" "}
+            <button className="formFieldButton" onClick={this.routeChange}>Sign In As Admin</button>{" "}
             
           </div>
 

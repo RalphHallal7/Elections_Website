@@ -1,4 +1,4 @@
-import React, {useRef, useEffect } from 'react';
+import React from 'react';
 // import WebViewer from '@pdftron/webviewer';
 
 
@@ -9,7 +9,7 @@ const Law = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '90vh'
+        height: '20vh'
       }}
     >
       <h1>Elections Law</h1>
