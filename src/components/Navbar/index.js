@@ -31,9 +31,13 @@ const Navbar = () => {
           <NavLink to='/list-of-candidats' activeStyle>
             List Of Candidats 
           </NavLink>
-
+          <NavLink to='/results' activeStyle>
+            Results 
+          </NavLink>
+          
           <DownloadLink src="https://drive.google.com/file/d/1JPV4pNk2WPgcE026NjzvjgX4LFJTX3j1/view?usp=sharing">
-            Election Law</DownloadLink>
+            Election Law
+          </DownloadLink>
 
         </NavMenu>
 

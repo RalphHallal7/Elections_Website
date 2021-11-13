@@ -4,57 +4,97 @@ import MOCK_DATA from './MOCK_DATA.json'
 import { COLUMNS } from './columns'
 import './table.css'
 
-export const VotersTable = () => {
-
-    const columns = useMemo (()=> COLUMNS, [])
-    const data = useMemo (()=> MOCK_DATA, [])
-
-    const tableInstance = useTable({
-        columns,
-        data
-    })
-
-    const {
-        getTableProps,
-        getTableBodyProps,
-        headerGroups,
-        rows,
-        prepareRow,
-    } = tableInstance
-
-    return (
-        <table {...getTableProps()}>
-            <thead>
-                {
-                    headerGroups.map((headerGroup) => (
-                    <tr {...headerGroup.getHeaderGroupsProps()}>
-                        {
-                            headerGroup.headers.map(column =>(
-                               <th {...column.getHeaderProps()}>{column.render('Header')}</th> 
-                            ))
-                        }
-                        
-                    </tr>
-                ))}
-
-            </thead>
-
-            <tbody {...getTableBodyProps()}>{
-                rows.map(row => {
-                    prepareRow(row)
-                    return(
-                        <tr {... row.getRowProps()}>
-                            {
-                                row.cells.map((cell) => {
-                                   return <td {...cell.getCellProps()}>{cell.render('Cell')}</td> 
-                                })
-                            }
-
-                        </tr>
-                    )
-                })}
-
-            </tbody>
-        </table>
+export function VotersTable(){
+    const DisplayData=MOCK_DATA.map(
+        (info)=>{
+            return(
+                <tr>
+                    <td>{info.id}</td>
+                    <td>{info.first_name}</td>
+                    <td>{info.last_name}</td>
+                    <td>{info.email}</td>
+                </tr>
+            )
+        }
     )
-}
+ 
+    return(
+        <div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>E-mail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                 
+                    
+                    {DisplayData}
+                    
+                </tbody>
+            </table>
+             
+        </div>
+    )
+ }
+ 
+//  export default VotersTable;
+
+
+// export const VotersTable = () => {
+
+//     const columns = useMemo (()=> COLUMNS, [])
+//     const data = useMemo (()=> MOCK_DATA, [])
+
+//     const tableInstance = useTable({
+//         columns,
+//         data
+//     })
+
+//     const {
+//         getTableProps,
+//         getTableBodyProps,
+//         headerGroups,
+//         rows,
+//         prepareRow,
+//     } = tableInstance
+
+//     return (
+//         <table {...getTableProps()}>
+//             <thead>
+//                 {
+//                     headerGroups.map((headerGroup) => (
+//                     <tr {...headerGroup.getHeaderGroupsProps()}>
+//                         {
+//                             headerGroup.headers.map(column =>(
+//                                <th {...column.getHeaderProps()}>{column.render('Header')}</th> 
+//                             ))
+//                         }
+                        
+//                     </tr>
+//                 ))}
+
+//             </thead>
+
+//             <tbody {...getTableBodyProps()}>{
+//                 rows.map(row => {
+//                     prepareRow(row)
+//                     return(
+//                         <tr {... row.getRowProps()}>
+//                             {
+//                                 row.cells.map((cell) => {
+//                                    return <td {...cell.getCellProps()}>{cell.render('Cell')}</td> 
+//                                 })
+//                             }
+
+//                         </tr>
+//                     )
+//                 })}
+
+//             </tbody>
+//         </table>
+//     )
+// }

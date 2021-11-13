@@ -10,6 +10,7 @@ import "./App.css";
 import Home from "./Pages/Home";
 import Voting from "./Pages/Voting";
 import Admin from "./Pages/Admin";
+import Results from "./Pages/Results";
 
   function App() {
     return (
@@ -26,6 +27,7 @@ import Admin from "./Pages/Admin";
             <Route path='/election-law' component={Law} />
             <Route path='/voting' component={Voting}/>
             <Route path='/admin' component={Admin}/>
+            <Route path='/results' component={Results}/>
 
           </Switch>
         </Router>
