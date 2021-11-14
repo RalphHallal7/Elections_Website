@@ -1,16 +1,12 @@
 import React from 'react';
+import { CandidatsTables } from '../components/Lists_Candidats_Tables/CandidatsTables';
+
 
 const ListCandidats = () => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '90vh'
-      }}
-    >
-      <h1>List of Candidats</h1>
+
+    <div>
+      <CandidatsTables/>
     </div>
   );
 };
