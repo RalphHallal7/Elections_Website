@@ -160,7 +160,11 @@ export function ModVoters() {
                 color: '#1d04ad'
             }}> ADD A VOTER </h1>
 
-        <form onSubmit={handleAddFormSubmit}>
+        <div style ={{          display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '10vh'}}><form onSubmit={handleAddFormSubmit}>
+          
           <input
             type="text"
             name="id1"
@@ -190,7 +194,7 @@ export function ModVoters() {
             onChange={handleAddFormChange}
           />
           <button type="submit" class="button button1">Add</button>
-        </form>
+        </form></div>
       </div>
     );
   };

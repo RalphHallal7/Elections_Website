@@ -17,12 +17,13 @@ const Modify_candidats = () => {
     return (
         <div>
             <div><ModCandidatsList1/></div>
-            <div><ModCandidatsList1/></div>
-            <div><ModCandidatsList1/></div>
+            <div><ModCandidatsList2/></div>
+            <div><ModCandidatsList3/></div>
             <div style={{
                 height: '5vh'}}></div>
             <div style={{
-                height: '10vh'}}><button type="submit" class="button button2" onClick={routeChange}>Back to Admin Page</button></div>
+                height: '10vh'
+                }}><button type="submit" class="button button2" onClick={routeChange}>Back to Admin Page</button></div>
         </div>
     )
 }

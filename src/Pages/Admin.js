@@ -20,14 +20,7 @@ const Admin = () => {
     history.push(path);
   }
   return (
-    <div
-    //   style={{
-    //     display: 'flex',
-    //     justifyContent: 'center',
-    //     alignItems: 'center',
-    //     height: '20vh'
-    //   }}
-    >
+    <div>
       <h1 style={{
             display: 'flex',
             justifyContent: 'center',
@@ -83,6 +76,12 @@ const Admin = () => {
             justifyContent: 'center',
             alignItems: 'center',
             height: '10vh'}}><button type="submit" class="button button1" onClick={routeChange3}>Modify List of Voters</button></div>
+
+      <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '10vh'}}><button type="submit" class="button button1" >Show Results</button></div>
 
     </div>
   );

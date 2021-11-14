@@ -7,12 +7,14 @@ const Results = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '90vh'
+        height: '90vh',
+        color: '#1d04ad'
       }}
     >
-      <h1>Results of the Elections</h1>
+      <h1>Results of the Elections Are Not Available Yet!</h1>
     </div>
   );
 };
 
 export default Results;
+   

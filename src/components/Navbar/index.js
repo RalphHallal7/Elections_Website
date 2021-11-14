@@ -21,7 +21,7 @@ const Navbar = () => {
     <>
       <Nav>
         <NavLink to='/'>
-          <img src={require('../../images/usj.svg')} alt='USJ' />
+          <img src={'https://www.usj.edu.lb/images/logousj.png'} alt='USJ' />
         </NavLink>
         <Bars />
         <NavMenu>
@@ -34,8 +34,8 @@ const Navbar = () => {
           <NavLink to='/results' activeStyle>
             Results 
           </NavLink>
-          
-          <DownloadLink src="https://drive.google.com/file/d/1JPV4pNk2WPgcE026NjzvjgX4LFJTX3j1/view?usp=sharing">
+
+          <DownloadLink src="https://drive.google.com/file/d/1JPV4pNk2WPgcE026NjzvjgX4LFJTX3j1/view?usp=sharing" >
             Election Law
           </DownloadLink>
 
