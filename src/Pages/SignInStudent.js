@@ -16,7 +16,7 @@ class SignInForm extends Component {
   }
 
   routeChange() {
-    let path = '/Voting';
+    let path = '/voting';
     this.props.history.push(path);
   }
 
@@ -73,7 +73,7 @@ class SignInForm extends Component {
           </div>
 
           <div className="formField">
-            <button className="formFieldButton" onClick={this.routeChange}>Sign In</button>
+            <button className="button button1" onClick={this.routeChange}>Sign In</button>
           </div>
 
         </form>

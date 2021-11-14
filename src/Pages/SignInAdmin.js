@@ -17,7 +17,7 @@ class SignInAdmin extends Component {
   }
 
   routeChange() {
-    let path = '/Admin';
+    let path = '/admin';
     this.props.history.push(path);
   }
 
@@ -73,7 +73,7 @@ class SignInAdmin extends Component {
           </div>
 
           <div className="formField">
-            <button className="formFieldButton" onClick={this.routeChange}>Sign In As Admin</button>{" "}
+            <button className="button button1" onClick={this.routeChange}>Sign In As Admin</button>{" "}
             
           </div>
 

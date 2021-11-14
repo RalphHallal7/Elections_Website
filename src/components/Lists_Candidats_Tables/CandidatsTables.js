@@ -106,11 +106,7 @@ export function CandidatsTables(){
                     {DisplayData3}   
                 </tbody>
             </table>
-
-
-                     
+            
         </div>
-
-
     )
  }

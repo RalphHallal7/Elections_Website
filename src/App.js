@@ -11,6 +11,9 @@ import Home from "./Pages/Home";
 import Voting from "./Pages/Voting";
 import Admin from "./Pages/Admin";
 import Results from "./Pages/Results";
+import Create_cand_list from "./Pages/Create_cand_list"
+import Modify_candidats from "./Pages/Modify_candidats";
+import Modify_Voters from "./Pages/Modify_Voters";
 
   function App() {
     return (
@@ -28,6 +31,10 @@ import Results from "./Pages/Results";
             <Route path='/voting' component={Voting}/>
             <Route path='/admin' component={Admin}/>
             <Route path='/results' component={Results}/>
+            <Route path='/create-list' component={Create_cand_list}/>
+            <Route path='/modify-candidates' component={Modify_candidats}/>
+            <Route path='/modify-voters' component={Modify_Voters}/>
+
 
           </Switch>
         </Router>
