@@ -7,7 +7,6 @@ import "./App.css";
 import Home from "./Pages/Home";
 import Voting from "./Pages/Voting";
 import Admin from "./Pages/Admin";
-import Results from "./Pages/Results";
 import Create_cand_list from "./Pages/Create_cand_list"
 import Modify_candidats from "./Pages/Modify_candidats";
 import Modify_Voters from "./Pages/Modify_Voters";
@@ -15,6 +14,7 @@ import { Pres_L1 } from "./Pages/Pres_L1";
 import { Pres_L2 } from "./Pages/Pres_L2";
 import { Pres_L3 } from "./Pages/Pres_L3";
 import { Thank_you } from "./Pages/Thank_you";
+import {Results} from "./Pages/Results"
 
   function App() {
     return (
