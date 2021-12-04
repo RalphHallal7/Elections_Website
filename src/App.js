@@ -1,6 +1,5 @@
 import React from "react";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
-import Navbar from "./components/Navbar";
 import ListVoters from "./Pages/ListVoters";
 import ListCandidats from "./Pages/ListCandidats";
 import "./App.css";
@@ -15,13 +14,13 @@ import { Pres_L2 } from "./Pages/Pres_L2";
 import { Pres_L3 } from "./Pages/Pres_L3";
 import { Thank_you } from "./Pages/Thank_you";
 import {Results} from "./Pages/Results"
+import NavBar from "./components/Navbar/NavBar";
 
   function App() {
     return (
 
-      
         <Router>
-          <Navbar />
+          <NavBar/>
           <Switch>
             
             <Route path='/' exact component={Home} />

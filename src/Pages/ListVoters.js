@@ -13,9 +13,9 @@ const ListVoters = () => {
       }}>
         List of Voters
       </h1>
-
         <VotersTable/>
     </div>
+    
     
   );
 };
