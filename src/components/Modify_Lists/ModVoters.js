@@ -6,12 +6,21 @@ import ReadOnlyRow from './ReadOnlyRow';
 
 
 export function ModVoters() {
+
+    const [id, setId] = useState('')
+    const [first_name, setFirstName] = useState('')
+    const [last_name, setLastName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
     const [contacts, setContacts] = useState(data);
+
     const [addFormData, setAddFormData] = useState({
       id: "",
       first_name: "",
       last_name: "",
       email: "",
+      password: ""
     });
   
     const [editFormData, setEditFormData] = useState({
@@ -108,6 +117,30 @@ export function ModVoters() {
   
       setContacts(newContacts);
     };
+
+
+    async function AddStudent(event){
+      event.preventDefault()
+  
+      const response = await fetch('http://localhost:4000/api/register',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',  
+        },
+        body: JSON.stringify({
+          id,
+          first_name,
+          last_name,
+          email,
+          password, 
+        })
+      })
+  
+      const data = await response.json()
+  
+      console.log(data)
+
+    }
   
     return (
       <div className="modify_voters">
@@ -160,40 +193,56 @@ export function ModVoters() {
                 color: '#1d04ad'
             }}> ADD A VOTER </h1>
 
-        <div style ={{          display: 'flex',
+        <div 
+        style ={{          
+            display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            height: '10vh'}}><form onSubmit={handleAddFormSubmit}>
+            height: '10vh'}}>
+
+          <form onSubmit={AddStudent}>
           
           <input
+            value={id}
             type="text"
             name="id1"
             required="required"
             placeholder="Enter an id number..."
-            onChange={handleAddFormChange}
+            onChange={(e)=> setId(e.target.value)}
           />
           <input
+            value={first_name}
             type="text"
             name="first_name1"
             required="required"
             placeholder="Enter a first name..."
-            onChange={handleAddFormChange}
+            onChange={(e)=> setFirstName(e.target.value)}
           />
           <input
-            type="text"
+            value = {last_name}
+            type="text" 
             name="last_name1"
             required="required"
             placeholder="Enter a last name..."
-            onChange={handleAddFormChange}
+            onChange={(e)=> setLastName(e.target.value)}
           />
           <input
+            value ={email}
             type="email"
             name="email1"
             required="required"
             placeholder="Enter an email..."
-            onChange={handleAddFormChange}
+            onChange={(e)=> setEmail(e.target.value)}
           />
-          <button type="submit" class="button button1">Add</button>
+          <input
+            value={password}
+            type="password"
+            name="password1"
+            required="required"
+            placeholder="Enter a password..."
+            onChange={(e)=> setPassword(e.target.value)}
+            />
+          <input className="button button1" type='submit' value="Add" />
         </form></div>
       </div>
     );

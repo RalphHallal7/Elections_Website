@@ -1,9 +1,35 @@
-import React from 'react';
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { CandidatsTables } from '../components/Lists_Candidats_Tables/CandidatsTables';
+import jwt from 'jsonwebtoken'
 
 const Voting = () => {
   const history = useHistory();
+
+  async function populateQuote(){
+    const req = await fetch('http://localhost:4000/api/quote', {
+      headers:{
+        'x-access-token': localStorage.getItem('token'),
+      }
+    })
+
+    const data = req.json()
+    console.log(data)
+  }
+
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token){
+      const voter = jwt.decode(token)
+      if(!voter){
+        localStorage.removeItem('token')
+        history.replace('/voting')
+      }else{
+        populateQuote()
+      }
+    }
+  }, [])
 
   const routeChange1 = () =>{ 
       let path = '/choose-pres-list1'; 

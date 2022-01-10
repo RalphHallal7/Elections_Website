@@ -1,9 +1,36 @@
-import React from 'react';
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import jwt from 'jsonwebtoken'
 
 const Admin = () => {
 
   const history = useHistory();
+
+
+  async function populateQuote(){
+      const req = await fetch('http://localhost:4000/api/quote-admin', {
+        headers:{
+          'x-access-token': localStorage.getItem('token'),
+        }
+      })
+  
+      const data = req.json()
+      console.log(data)
+    }
+  
+  
+    useEffect(() => {
+      const token = localStorage.getItem('token')
+      if (token){
+        const admin = jwt.decode(token)
+        if(!admin){
+          localStorage.removeItem('token')
+          history.replace('/admin')
+        }else{
+          populateQuote()
+        }
+      }
+    }, [])
 
   const routeChange1 = () =>{ 
       let path = '/create-list'; 

@@ -3,7 +3,6 @@ import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import ListVoters from "./Pages/ListVoters";
 import ListCandidats from "./Pages/ListCandidats";
 import "./App.css";
-import Home from "./Pages/Home";
 import Voting from "./Pages/Voting";
 import Admin from "./Pages/Admin";
 import Create_cand_list from "./Pages/Create_cand_list"
@@ -15,6 +14,8 @@ import { Pres_L3 } from "./Pages/Pres_L3";
 import { Thank_you } from "./Pages/Thank_you";
 import {Results} from "./Pages/Results"
 import NavBar from "./components/Navbar/NavBar";
+import SignInStudent from "./Pages/SignInStudent";
+import SignInAdmin from "./Pages/SignInAdmin";
 
   function App() {
     return (
@@ -23,8 +24,8 @@ import NavBar from "./components/Navbar/NavBar";
           <NavBar/>
           <Switch>
             
-            <Route path='/' exact component={Home} />
-            <Route path="/sign-in" component={Home} />
+            <Route path='/' exact component={SignInStudent} />
+            <Route path="/sign-in" component={SignInAdmin} />
             <Route path='/list-of-voters' component={ListVoters} />
             <Route path='/list-of-candidats' component={ListCandidats} />
             <Route path='/voting' component={Voting}/>

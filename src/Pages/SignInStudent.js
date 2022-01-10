@@ -1,59 +1,104 @@
-import React, { Component } from "react";
+import {React, useState} from 'react'
+import { useHistory } from "react-router-dom";
+import { HashRouter as  Router, Route, NavLink } from "react-router-dom";
 
-class SignInForm extends Component {
-  constructor() {
-    super();
+export default function SignInStudent() {
 
-    this.state = {
-      email: "",
-      password: ""
-    };
+  const history = useHistory();
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-
-    this.routeChange = this.routeChange.bind(this);
+  const routeChange = () =>{ 
+      let path = '/voting'; 
+      history.push(path);
   }
 
-  routeChange() {
-    let path = '/voting';
-    this.props.history.push(path);
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  async function signInStudent(event){
+    event.preventDefault()
+
+    const response = await fetch('http://localhost:4000/api/login',{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',  
+      },
+      body: JSON.stringify({
+        email,
+        password, 
+      })
+    })
+
+    const data = await response.json()
+
+    if (data.voter) {
+      localStorage.setItem('token', data.voter)
+      alert('Login successful')
+      window.location.href = '/voting'
+    }else{
+      alert('Please Check your Email and Password')
+    }
   }
 
+  return (
+    <div className="App">
 
-  handleChange(event) {
-    let target = event.target;
-    let value = target.type === "checkbox" ? target.checked : target.value;
-    let name = target.name;
+    <div className="appAside" >
+      <div className = "UsjTitle">
+        <h1>USJ Student Council Elections</h1>
+      </div>
+    </div>
 
-    this.setState({
-      [name]: value
-    });
-  }
 
-  handleSubmit(event) {
-    event.preventDefault();
 
-    console.log("The form was submitted with the following data:");
-    console.log(this.state);
-  }
+    <div className="appForm">
+      <div className="pageSwitcher">
+        <NavLink
+          to="/"
+          activeClassName="pageSwitcherItem-active"
+          className="pageSwitcherItem"
+        >
+          Student
+        </NavLink>
+        <NavLink
+          exact
+          to="/sign-in"
+          activeClassName="pageSwitcherItem-active"
+          className="pageSwitcherItem"
+        >
+          Admin
+        </NavLink>
+      </div>
 
-  render() {
-    return (
+      <div className="formTitle">
+        <NavLink
+          to="/"
+          activeClassName="formTitleLink-active"
+          className="formTitleLink"
+        >
+          Sign In Student
+        </NavLink>{" "}
+        or{" "}
+        <NavLink
+          exact
+          to="/sign-in"
+          activeClassName="formTitleLink-active"
+          className="formTitleLink"
+        >
+          Sign In Admin
+        </NavLink>
+      </div>      
+    
       <div className="formCenter">
-        <form className="formFields" onSubmit={this.handleSubmit}>
+        <form className="formFields" onSubmit={signInStudent} >
           <div className="formField">
             <label className="formFieldLabel" htmlFor="email">
               USJ E-Mail Address
             </label>
-            <input
+            <input className='formFieldInput'
+              value={email}
+              onChange={(e)=> setEmail(e.target.value)}
               type="email"
-              id="email"
-              className="formFieldInput"
-              placeholder="Enter your USJ email"
-              name="email"
-              value={this.state.email}
-              onChange={this.handleChange}
+              placeholder='Enter your USJ E-mail' 
             />
           </div>
 
@@ -61,25 +106,25 @@ class SignInForm extends Component {
             <label className="formFieldLabel" htmlFor="password">
               Password
             </label>
-            <input
-              type="password"
-              id="password"
-              className="formFieldInput"
-              placeholder="Enter your password"
-              name="password"
-              value={this.state.password}
-              onChange={this.handleChange}
+            <input className='formFieldInput'
+              value={password}
+              onChange={(e)=> setPassword(e.target.value)}
+              type='password'
+              placeholder='Enter your password' 
             />
           </div>
 
           <div className="formField">
-            <button className="button button1" onClick={this.routeChange}>Sign In</button>
+            {/* <input className="button button1" type='submit' value="Sign In" /> */}
+            <button className="button button1" onClick={routeChange}>Sign In</button>
           </div>
 
         </form>
       </div>
-    );
-  }
-}
 
-export default SignInForm;
+
+    </div>
+    </div>
+
+  )
+}
